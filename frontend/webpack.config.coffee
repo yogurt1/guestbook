@@ -3,6 +3,9 @@ webpack = require 'webpack'
 {join, resolve} = require 'path'
 {extend} = require 'underscore'
 fs = require 'fs'
+
+publicPath = 'http://localhost/~bsdfun/guestbook/web'
+
 #merge = require 'webpack-merge'
 ExtractTextPlugin = require 'extract-text-webpack-plugin'
 ProgressBarPlugin = require 'progress-bar-webpack-plugin'
@@ -12,7 +15,7 @@ styles =
   extract: (loader) -> if production then @plugin.extract('style', loader) else "style!#{loader}"
   common: 'css?sourceMap&importLoaders=1'
   sass: @common + '&modules' + '!postcss!sass?sourceMap'
-  ref: @common + '!postcss!sass?sourceMap'
+  ref: @common + '!postcss!sass-loader-once?sourceMap'
   css: @common + '&modules!postcss'
 
 {NODE_ENV} = process.env
@@ -48,17 +51,14 @@ plugins =
   ]
   postcss: [
     require('autoprefixer')(['last 2 versions'])
-    #require 'postcss-font-awesome'
     require 'postcss-svgo'
-    #require 'postcss-conic-gradient'
-    require 'postcss-font-grabber'
     require 'postcss-circle'
     require 'postcss-center'
     require 'postcss-animation'
     require 'postcss-triangle'
     require 'postcss-instagram'
     #require 'postcss-sprites'
-    require 'cssnano'
+    #require 'cssnano'
   ]
   expose: [{
     test: require.resolve 'react'
@@ -121,13 +121,16 @@ config =
     stats: 'error-only'
     historyApiFallback: off
     proxy:
-      '/post*': target: "http://localhost/~bsdfun/guestbook/web/", secure: false
-      '/site*': target: "http://localhost/~bsdfun/guestbook/web/", secure: false
+      '/post*': target: publicPath, secure: false
+      '/site*': target: publicPath, secure: false
   debug: production
   postcss: -> plugins.postcss
+  sassLoader:
+    includePath: [resolve __dirname, './node_modules']
+    #importer: importonce
   output:
     path: if production then join __dirname, '../web' else ''
-    publicPath: if production then 'http://localhost/~bsdfun/guestbook/web' else ''
+    publicPath: if production then publicPath else '' 
     filename: '[name].js'
     libraryTarget: "umd"
   cache: on

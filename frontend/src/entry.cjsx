@@ -3,7 +3,7 @@ React = require 'react'
 {Router, hashHistory} = require 'react-router'
 {Provider} = require 'react-redux'
 
-styles = require 'styles/common' #prepend global styles
+styles = require 'styles/global' #prepend global styles
 store = require './store'
 routes = require './routes'
 

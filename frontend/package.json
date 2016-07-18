@@ -39,6 +39,7 @@
     "postcss-center": "^1.0.0",
     "postcss-circle": "^1.0.0",
     "postcss-currency": "^0.1.0",
+    "postcss-discard-duplicates": "^2.0.1",
     "postcss-easings": "^0.3.0",
     "postcss-font-grabber": "^1.0.6",
     "postcss-instagram": "^1.0.0",
