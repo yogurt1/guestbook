@@ -13,6 +13,7 @@ store = createStore reducers, initialState, if not production
     level: 'info', collapsed: true
 
 store.dispatch type: 'INCR'
+store.dispatch type: 'INCR'
 
 if module.hot
   nextReducer = require 'reducers'

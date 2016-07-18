@@ -4,7 +4,7 @@ webpack = require 'webpack'
 {extend} = require 'underscore'
 fs = require 'fs'
 
-publicPath = 'http://localhost/~bsdfun/guestbook/web'
+publicPath = 'http://localhost/~bsdfun/guestbook/web/'
 
 #merge = require 'webpack-merge'
 ExtractTextPlugin = require 'extract-text-webpack-plugin'
@@ -123,6 +123,7 @@ config =
     proxy:
       '/post*': target: publicPath, secure: false
       '/site*': target: publicPath, secure: false
+      '/fonts*': target: publicPath, secure: false
   debug: production
   postcss: -> plugins.postcss
   sassLoader:
