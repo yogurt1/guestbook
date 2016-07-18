@@ -10,10 +10,13 @@
     .catch catchErr
   data###
 
+json = 'application/json'
 #move to XHR
 module.exports = (id) ->
   xhr = new XMLHttpRequest()
   xhr.open 'GET', "posts/#{id}", no
+  xhr.setRequestHeader 'Accept', json
+  xhr.setRequestHeader 'Content-Type', json
   xhr.send()
   if xhr.status isnt 200
     throw new Error "#{xhr.status} #{xhr.statusText}"
