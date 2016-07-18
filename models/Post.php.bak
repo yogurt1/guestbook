@@ -1,0 +1,33 @@
+<?php
+
+namespace app\models;
+use yii\db\ActiveRecord;
+use Yii;
+
+class Post extends ActiveRecord
+{
+  public static function tableName()
+  {
+    return 'post';
+  }
+
+  public function rules()
+  {
+    return [
+      [['user', 'email', 'body'], 'required'],
+      [['body', 'file'], 'string'],
+      [['user', 'email'], 'string', 'max' => 16],
+    ];
+  }
+
+  public function attributeLabels()
+  {
+    return [
+      'id' => 'ID',
+      'user' => 'User',
+      'email' => 'E-mail',
+      'body' => 'Body',
+      'file' => 'File',
+    ];
+  }
+}
