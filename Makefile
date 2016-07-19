@@ -4,6 +4,7 @@ submodule:
 
 frontend: submodule
 	$(MAKE) -C frontend
+	@cp -R frontend/dist/* ./web/
 
 build: frontend submodule
-all: build
+all: frontend
