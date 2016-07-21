@@ -1,12 +1,12 @@
 CACHE MANIFEST
-#ver:2016-07-21 06:19:34
+#ver:2016-07-21 12:24:07
 
 CACHE:
 ./static/iosevka-regular.b1254c1b17bacd69f0c5825b8da25a98.ttf
 ./static/iosevka-slab-regular.d444a0345cbc0774a506593e4342be24.ttf
-./static/bundle.50acd37d3d737ed5e191.js
-./static/vendor.50acd37d3d737ed5e191.js
-./static/styles.50acd37d3d737ed5e191.css
+./static/bundle.4876351cb7f78c04de7c.js
+./static/vendor.4876351cb7f78c04de7c.js
+./static/styles.4876351cb7f78c04de7c.css
 ./
 
 NETWORK:
