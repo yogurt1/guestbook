@@ -2,9 +2,10 @@ submodule:
 	@git submodule init
 	@git submodule update
 
-frontend: submodule
+web:
 	$(MAKE) -C frontend
 	@cp -R frontend/dist/* ./web/
 
-build: frontend submodule
-all: frontend
+all: web
+
+.PHONY: web all

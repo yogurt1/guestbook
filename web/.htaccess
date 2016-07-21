@@ -2,5 +2,7 @@ RewriteEngine on
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
+
 RewriteRule (.*) api.php [L]
-#RewriteRule . index.php
+
+AddType text/cache-manifest .manifest
